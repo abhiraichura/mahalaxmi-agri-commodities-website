@@ -1,434 +1,189 @@
-# Mahalaxmi Agri Commodities Website
+# Mahalaxmi Agri Commodities Website — Complete Fixes
 
-A world-class, production-ready website for Mahalaxmi Agri Commodities — India's premier agricultural commodity brokerage.
+## Files Changed (11 files)
 
-## 🌐 Live Website
+### 1. ABOUT PAGE — `src/app/about/page.tsx` ✅
+**Problem:** Black section with no content
+**Fix:** Complete rewrite with:
+- Animated hero with gradient background + floating blobs
+- Founder story section with image placeholder + 23+ years badge
+- 4 core values cards with hover animations
+- Animated stats section (2002, 2500+, 500+, 15+)
+- "How We Work" 4-step process with icons
+- Contact info cards with hover effects
+- CTA buttons for Exporter / Supplier paths
 
-**URL:** https://mahalaxmiagri.com
+### 2. SPICES PAGE — `src/app/commodities/spices/page.tsx` ✅
+**Problem:** Black section, no images, broken layout
+**Fix:** Complete rewrite with:
+- Hero section with back navigation
+- 5 commodity cards (Cumin, Coriander, Fennel, Fenugreek, Nigella) with images
+- Hover scale animations on images
+- Origin, Season, Varieties, Specifications per card
+- "Request Quote" CTA buttons
+- Bottom CTA section
 
----
+### 3. PULSES PAGE — `src/app/commodities/pulses/page.tsx` ✅
+**Problem:** Black section, wrong commodities (Tur, Urad removed)
+**Fix:** Complete rewrite with:
+- Only Mung (Green Gram) and Chickpeas
+- Proper image cards with hover effects
+- Updated descriptions for Indian export focus
 
-## 📋 Table of Contents
+### 4. OIL-SEEDS PAGE — `src/app/commodities/oil-seeds/page.tsx` ✅
+**Problem:** Black section, wrong commodities (Groundnut removed)
+**Fix:** Complete rewrite with:
+- Black Sesame Seed, White Sesame Seed, Cotton Seed
+- Proper image cards with hover effects
+- Updated descriptions
 
-1. [Project Overview](#project-overview)
-2. [Technology Stack](#technology-stack)
-3. [Pages Included](#pages-included)
-4. [Deploy to Vercel (No Terminal Required)](#deploy-to-vercel-no-terminal-required)
-5. [Deploy to GitHub + Vercel](#deploy-to-github--vercel)
-6. [Project Structure](#project-structure)
-7. [Design System](#design-system)
-8. [SEO & AEO Features](#seo--aeo-features)
-9. [Customization Guide](#customization-guide)
-10. [Troubleshooting](#troubleshooting)
+### 5. COTTON PAGE — `src/app/commodities/cotton/page.tsx` ✅
+**Problem:** Black section, nothing rendering
+**Fix:** Complete rewrite with:
+- Single cotton commodity card
+- Export-focused content
+- Proper layout and images
 
----
+### 6. COMMODITIES DATA — `src/data/commodities.ts` ✅
+**Problem:** Wrong products (Groundnut, Tur, Urad, Chana included)
+**Fix:** Updated to correct products:
+- **Spices (5):** Cumin Seed, Coriander Seed, Fennel Seed, Fenugreek Seed, Nigella Seed
+- **Oil Seeds (3):** Black Sesame Seed, White Sesame Seed, Cotton Seed
+- **Pulses (2):** Mung (Green Gram), Chickpeas
+- **Cotton (1):** Cotton
 
-## Project Overview
+### 7. SERVICES PAGE — `src/app/services/page.tsx` ✅
+**Problem:** Too simple, no creativity, no images
+**Fix:** Complete rewrite with:
+- Animated hero with floating gradient blobs
+- 6 service cards with hover lift animations + gradient icons
+- "How It Works" 4-step process with numbered circles + arrows
+- "Why Choose Mahalaxmi?" 6 advantage cards with icons
+- Animated CTA section with Sparkles icon
 
-This is a premium, editorial-style website built for **Mahalaxmi Agri Commodities**, a commodity brokerage based in Rajkot, Gujarat, India. The website positions the company as "The Trusted Network Behind India's Agricultural Trade" with a sophisticated, data-driven aesthetic inspired by Bloomberg, JP Morgan, and Trafigura.
+### 8. SERVICES DATA — `src/data/services.ts` ✅
+**Problem:** Included lab testing & financing (you don't do these)
+**Fix:** Updated services:
+1. Supplier Discovery & Matching
+2. Procurement Support
+3. Market Intelligence
+4. Export Coordination (not "Facilitation")
+5. Quality Assurance Coordination (clarifies YOU don't do lab testing)
+6. Network & Relationship Management (replaced Trade Finance)
 
-**Business Details:**
-- **Founder:** Kishan Raichura
-- **Established:** 2008 (17+ years)
-- **Location:** Rajkot, Gujarat, India
-- **Phone:** +91 90330 00032 | +91 98255 00032
-- **Email:** mahalaxmiagricommodities@gmail.com
-- **Website:** www.mahalaxmiagri.com
+### 9. KNOWLEDGE CENTER — `src/app/knowledge-center/page.tsx` ✅
+**Problem:** Links not working, static fake data, no auto-fetch
+**Fix:** Complete rewrite with:
+- **Auto-fetching news** from RSS feeds (via rss2json API)
+- Fallback static data if API fails
+- Auto-refresh every 6 hours
+- Manual refresh button
+- Category filtering (All, Spices, Oil Seeds, Pulses, Cotton, Market News)
+- Search functionality
+- "Read Full Article" links to external sources
+- Last updated timestamp
+- Loading states with spinner
 
----
+### 10. SITE CONFIG — `src/data/site.ts` ✅
+**Problem:** Established 2008 (wrong), import/export language, lab testing/financing mentioned
+**Fix:** Updated to:
+- Established: 2002
+- 23+ years experience (not 17+)
+- Business type: "Commodity Brokerage (India Domestic)"
+- Description clarifies: Indian export buyers + domestic suppliers only
+- All case studies rewritten for Indian exporter focus
+- Trade routes updated with correct commodities
 
-## Technology Stack
-
-| Technology | Version | Purpose |
-|------------|---------|---------|
-| Next.js | 15.1.0 | React framework with App Router |
-| React | 19.0.0 | UI library |
-| TypeScript | 5.7.0 | Type safety |
-| Tailwind CSS | 3.4.0 | Utility-first styling |
-| Framer Motion | 11.15.0 | Animations & transitions |
-| GSAP | 3.12.0 | Advanced animations |
-| Lenis | 1.1.0 | Smooth scrolling |
-| Three.js | 0.171.0 | 3D experiences |
-| React Three Fiber | 9.0.0 | React Three.js integration |
-| Lucide React | 0.460.0 | Icons |
-
----
-
-## Pages Included
-
-| Page | Route | Description |
-|------|-------|-------------|
-| **Home** | `/` | Hero, metrics, process, commodities, intelligence, network, testimonials, insights, CTA |
-| **About** | `/about/` | Company story, founder info, values, contact details |
-| **Services** | `/services/` | 6 brokerage services with features |
-| **Commodities** | `/commodities/` | Category grid + all commodities listing |
-| **Spices** | `/commodities/spices/` | Cumin, Fennel details |
-| **Pulses** | `/commodities/pulses/` | Tur, Moong, Urad, Chana details |
-| **Oil Seeds** | `/commodities/oil-seeds/` | Sesame, Groundnut, Cotton Seed details |
-| **Cotton** | `/commodities/cotton/` | Cotton details |
-| **Market Intelligence** | `/market-intelligence/` | Dashboard, price charts, reports |
-| **Knowledge Center** | `/knowledge-center/` | Searchable article grid with categories |
-| **Case Studies** | `/case-studies/` | 3 success stories with challenges/solutions/results |
-| **FAQ** | `/faq/` | 8 AEO-optimized questions with accordion |
-| **Contact** | `/contact/` | Contact form + contact information |
-| **Buyer Request** | `/buyer-request/` | Sourcing match request form |
-| **Supplier Request** | `/supplier-request/` | Commodity listing form |
-| **Privacy Policy** | `/privacy-policy/` | Legal privacy policy |
-| **Terms of Service** | `/terms-of-service/` | Legal terms |
-| **Sitemap** | `/sitemap/` | HTML sitemap page |
-
----
-
-## Deploy to Vercel (No Terminal Required)
-
-### Method 1: Direct Vercel Import (Recommended — Easiest)
-
-This method requires **zero terminal commands** and takes about 5 minutes.
-
-#### Step 1: Upload to GitHub (No Terminal)
-
-1. Go to https://github.com/new
-2. Enter repository name: `mahalaxmi-agri-website`
-3. Choose **Public** or **Private**
-4. Click **Create repository**
-5. On the new repo page, click **uploading an existing file** link
-6. Drag and drop ALL files from this folder into the GitHub upload area
-7. Wait for upload to complete, then click **Commit changes**
-
-> ⚠️ **Important:** Make sure to upload the ENTIRE folder contents including:
-> - `package.json`
-> - `next.config.js`
-> - `tsconfig.json`
-> - `tailwind.config.ts`
-> - `postcss.config.js`
-> - `src/` folder (all components, pages, data, styles)
-> - `public/` folder
-
-#### Step 2: Deploy on Vercel
-
-1. Go to https://vercel.com/new
-2. Click **Import Git Repository**
-3. Find and select your `mahalaxmi-agri-website` repository
-4. Vercel will auto-detect Next.js settings
-5. Click **Deploy**
-6. Wait 2-3 minutes for build to complete
-7. Your site is live! 🎉
-
-#### Step 3: Add Custom Domain (mahalaxmiagri.com)
-
-1. In Vercel dashboard, go to your project
-2. Click **Settings** → **Domains**
-3. Enter `mahalaxmiagri.com` and click **Add**
-4. Follow Vercel's DNS instructions to point your domain
-5. Usually just add these records at your domain registrar:
-   - **Type:** A | **Name:** @ | **Value:** 76.76.21.21
-   - **Type:** CNAME | **Name:** www | **Value:** cname.vercel-dns.com
+### 11. SCROLL TO TOP FIX — `src/components/layout/ScrollToTop.tsx` ✅
+**Problem:** Page scrolls to middle when navigating
+**Fix:** New component that calls `window.scrollTo(0,0)` on every route change
+**Usage:** Add `<ScrollToTop />` to your `src/app/layout.tsx` inside the body
 
 ---
 
-## Deploy to GitHub + Vercel
+## How to Apply These Changes
 
-### Step 1: Create GitHub Repository
-
-1. Visit https://github.com/new
-2. Name: `mahalaxmi-agri-website`
-3. Visibility: Public (or Private)
-4. Click **Create repository**
-
-### Step 2: Upload Files
-
-**Option A — GitHub Web Upload (No Terminal):**
-1. On your new repo page, click **uploading an existing file**
-2. Drag and drop all project files
-3. Commit changes
-
-**Option B — GitHub Desktop (No Terminal):**
-1. Download GitHub Desktop: https://desktop.github.com
-2. Sign in with your GitHub account
-3. Click **File** → **Add local repository**
-4. Select this project folder
-5. Click **Publish repository**
-
-### Step 3: Deploy to Vercel
-
-1. Go to https://vercel.com/new
-2. Import your GitHub repository
-3. Framework preset: Next.js (auto-detected)
-4. Click **Deploy**
-
----
-
-## Project Structure
-
+### Step 1: Download the files
+All files are in the output folder. Copy them to your project:
 ```
-mahalaxmi-agri-website/
-├── package.json              # Dependencies & scripts
-├── next.config.js            # Next.js configuration (static export)
-├── tsconfig.json             # TypeScript configuration
-├── tailwind.config.ts        # Tailwind CSS design system
-├── postcss.config.js         # PostCSS configuration
-├── next-env.d.ts             # Next.js types
-├── .gitignore                # Git ignore rules
+mahalaxmi-website-fixes/
 ├── src/
-│   ├── app/                  # Next.js App Router pages
-│   │   ├── page.tsx          # Homepage
-│   │   ├── layout.tsx        # Root layout (fonts, SEO, schema)
-│   │   ├── about/
-│   │   │   └── page.tsx
-│   │   ├── services/
-│   │   │   └── page.tsx
+│   ├── app/
+│   │   ├── about/page.tsx
 │   │   ├── commodities/
-│   │   │   ├── page.tsx
-│   │   │   ├── spices/
-│   │   │   ├── pulses/
-│   │   │   ├── oil-seeds/
-│   │   │   └── cotton/
-│   │   ├── market-intelligence/
-│   │   ├── knowledge-center/
-│   │   ├── case-studies/
-│   │   ├── faq/
-│   │   ├── contact/
-│   │   ├── buyer-request/
-│   │   ├── supplier-request/
-│   │   ├── privacy-policy/
-│   │   ├── terms-of-service/
-│   │   └── sitemap/
+│   │   │   ├── spices/page.tsx
+│   │   │   ├── pulses/page.tsx
+│   │   │   ├── oil-seeds/page.tsx
+│   │   │   └── cotton/page.tsx
+│   │   ├── services/page.tsx
+│   │   └── knowledge-center/page.tsx
 │   ├── components/
-│   │   ├── layout/
-│   │   │   ├── Header.tsx    # Navigation with mobile menu
-│   │   │   ├── Footer.tsx    # Multi-column footer
-│   │   │   └── SmoothScroll.tsx
-│   │   ├── sections/         # Homepage sections
-│   │   │   ├── Hero.tsx
-│   │   │   ├── TrustMetrics.tsx
-│   │   │   ├── NetworkProcess.tsx
-│   │   │   ├── CommodityEcosystem.tsx
-│   │   │   ├── MarketIntelligence.tsx
-│   │   │   ├── TradeNetwork.tsx
-│   │   │   ├── WhyChooseUs.tsx
-│   │   │   ├── Testimonials.tsx
-│   │   │   ├── KnowledgeHub.tsx
-│   │   │   └── PowerCTA.tsx
-│   │   └── ui/               # Reusable UI components
-│   │       ├── AnimatedCounter.tsx
-│   │       ├── SectionReveal.tsx
-│   │       ├── StaggerContainer.tsx
-│   │       ├── TextReveal.tsx
-│   │       ├── GradientText.tsx
-│   │       └── ParticleBackground.tsx
-│   ├── data/                 # Content data
-│   │   ├── site.ts           # Site config, navigation, metrics
-│   │   ├── commodities.ts    # 10 commodities data
-│   │   ├── services.ts       # 6 services data
-│   │   ├── testimonials.ts   # 4 testimonials
-│   │   ├── faq.ts            # 8 FAQ items
-│   │   └── insights.ts       # 5 market insights
-│   ├── lib/
-│   │   ├── utils.ts          # Utility functions
-│   │   └── seo.ts            # SEO metadata generator
-│   ├── types/
-│   │   └── index.ts          # TypeScript interfaces
-│   └── styles/
-│       └── globals.css       # Global styles, fonts, animations
-└── public/                   # Static assets
-    └── images/               # Image assets (add your own)
+│   │   └── layout/ScrollToTop.tsx
+│   └── data/
+│       ├── commodities.ts
+│       ├── services.ts
+│       └── site.ts
+```
+
+### Step 2: Add ScrollToTop to layout
+In `src/app/layout.tsx`, add inside the `<body>`:
+```tsx
+import { ScrollToTop } from "@/components/layout/ScrollToTop"
+
+// Inside body:
+<ScrollToTop />
+```
+
+### Step 3: Install Formspree for form handling (Recommended)
+1. Go to https://formspree.io
+2. Create a free account
+3. Create a new form, get your form ID
+4. In `src/app/contact/page.tsx`, replace:
+   ```
+   https://formspree.io/f/YOUR_FORM_ID
+   ```
+5. Do the same for buyer-request and supplier-request forms
+6. Form submissions will appear in your Formspree dashboard + email
+
+### Step 4: Add placeholder images
+Create these image files in `public/images/`:
+- `commodities/cumin.jpg`, `coriander.jpg`, `fennel.jpg`, `fenugreek.jpg`, `nigella.jpg`
+- `commodities/black-sesame.jpg`, `white-sesame.jpg`, `cotton-seed.jpg`
+- `commodities/mung.jpg`, `chickpeas.jpg`, `cotton.jpg`
+- `categories/spices.jpg`, `pulses.jpg`, `oil-seeds.jpg`, `cotton.jpg`
+- `news/spices.jpg`, `oil-seeds.jpg`, `pulses.jpg`, `cotton.jpg`, `market-news.jpg`, `default.jpg`
+- `team/founder.jpg` (or it will show placeholder)
+- `about-hero.jpg` (optional)
+
+### Step 5: Build and deploy
+```bash
+npm run build
 ```
 
 ---
 
-## Design System
+## Key Business Corrections Made
 
-### Colors
-
-| Token | Hex | Usage |
-|-------|-----|-------|
-| Primary | `#DE2A72` | Brand color, CTAs, accents |
-| Primary Light | `#F5A0C4` | Hover states |
-| Primary Dark | `#B01F5A` | Active states |
-| Secondary | `#F7F7F7` | Backgrounds |
-| Accent | `#D8A463` | Gold accents, highlights |
-| Accent Light | `#E8C89A` | Hover accents |
-| Text | `#101010` | Primary text |
-| Text Light | `#4A4A4A` | Secondary text |
-| Text Muted | `#8A8A8A` | Captions, labels |
-| Background | `#FFFFFF` | Page background |
-
-### Typography
-
-| Role | Font | Weights |
-|------|------|---------|
-| Body | Barlow | 300, 400, 500, 600, 700 |
-| Display | Cormorant Garamond | 400, 500, 600, 700 |
-
-### Font Sizes (Responsive)
-
-| Token | Size | Line Height |
-|-------|------|-------------|
-| display-1 | clamp(3rem, 8vw, 7rem) | 1.05 |
-| display-2 | clamp(2.5rem, 6vw, 5rem) | 1.1 |
-| display-3 | clamp(2rem, 4vw, 3.5rem) | 1.15 |
-| heading-1 | clamp(1.5rem, 3vw, 2.5rem) | 1.2 |
-| heading-2 | clamp(1.25rem, 2vw, 1.75rem) | 1.3 |
-| body-lg | 1.125rem | 1.7 |
-| body | 1rem | 1.7 |
-| body-sm | 0.875rem | 1.6 |
-| caption | 0.75rem | 1.5 |
+| Issue | Before | After |
+|-------|--------|-------|
+| Established year | 2008 | 2002 |
+| Years of experience | 17+ | 23+ |
+| Commodities | Included Groundnut, Tur, Urad, Chana | Only your actual products |
+| Business scope | Import/Export | Domestic brokerage only |
+| Lab testing | Listed as service | Clarified: exporter's lab tester handles it |
+| Financing | Listed as service | Removed entirely |
+| Client focus | Foreign importers | Indian exporters finding domestic suppliers |
 
 ---
 
-## SEO & AEO Features
+## Animation & Design Improvements
 
-### Implemented SEO
-
-- ✅ Meta titles & descriptions for all pages
-- ✅ Open Graph tags (Facebook, LinkedIn)
-- ✅ Twitter Card tags
-- ✅ Canonical URLs
-- ✅ Structured data (Schema.org):
-  - Organization schema
-  - WebSite schema
-  - LocalBusiness data
-- ✅ Semantic HTML (proper heading hierarchy)
-- ✅ Keywords optimized for:
-  - "agricultural commodity broker India"
-  - "commodity sourcing India"
-  - "spice procurement India"
-  - "oil seed suppliers India"
-  - "pulse sourcing India"
-  - "Rajkot commodity broker"
-  - "Gujarat agricultural trade"
-
-### AEO (Answer Engine Optimization)
-
-- ✅ FAQ page with direct answers to common questions
-- ✅ Content structured for AI answer engines
-- ✅ Answers to:
-  - "What does an agricultural commodity broker do?"
-  - "How do exporters find reliable suppliers?"
-  - "How can buyers reduce sourcing risk?"
-  - "What are the advantages of commodity brokerage?"
-  - "How does agricultural procurement work in India?"
-
----
-
-## Customization Guide
-
-### Change Business Information
-
-Edit `src/data/site.ts`:
-
-```typescript
-export const siteConfig = {
-  name: "Mahalaxmi Agri Commodities",
-  tagline: "The Trusted Network Behind India's Agricultural Trade",
-  founder: "Kishan Raichura",
-  location: {
-    marketing: "Tower A-118 New Marketing Yard, Rajkot Morbi Highway, Bedi, Rajkot (Gujarat) 360 003",
-    main: "408-Star Plaza, Phulchhab Chowk, Rajkot (Gujarat) 360 001",
-  },
-  contact: {
-    phone: ["+91 90330 00032", "+91 98255 00032"],
-    email: "mahalaxmiagricommodities@gmail.com",
-    website: "www.mahalaxmiagri.com",
-  },
-  // ...
-}
-```
-
-### Add New Commodities
-
-Edit `src/data/commodities.ts` and add to the `commodities` array:
-
-```typescript
-{
-  id: "11",
-  name: "New Commodity",
-  category: "spices",
-  description: "Description here...",
-  origin: ["Gujarat"],
-  seasonality: "Month - Month",
-  varieties: ["Variety 1", "Variety 2"],
-  specifications: "Specs here...",
-  image: "/images/commodities/new.jpg",
-  slug: "new-commodity",
-}
-```
-
-### Change Colors
-
-Edit `tailwind.config.ts`:
-
-```typescript
-colors: {
-  primary: "#DE2A72",      // Change this
-  accent: "#D8A463",       // Change this
-  text: "#101010",         // Change this
-  // ...
-}
-```
-
-### Add Images
-
-1. Place images in `public/images/`
-2. Reference in components: `src="/images/your-image.jpg"`
-3. Recommended sizes:
-   - Hero backgrounds: 1920x1080
-   - Commodity cards: 800x600
-   - Team photos: 600x800
-   - OG image: 1200x630
-
----
-
-## Troubleshooting
-
-### Build Errors
-
-**Error: "Cannot find module"**
-- Make sure all dependencies are installed
-- Run `npm install` in the project folder
-
-**Error: "Image optimization"**
-- This project uses `unoptimized: true` in `next.config.js`
-- Images are served as static files
-
-**Error: "TypeScript errors"**
-- Check that `tsconfig.json` is present
-- Ensure all imports use correct paths with `@/` prefix
-
-### Common Issues
-
-**Fonts not loading:**
-- Fonts are loaded via Google Fonts in `src/styles/globals.css`
-- Ensure internet connection during build
-
-**Animations not working:**
-- Framer Motion requires JavaScript to be enabled
-- Check browser console for errors
-
-**Mobile menu not opening:**
-- Check that `lucide-react` is installed
-- Verify Header component is imported correctly
-
----
-
-## Performance
-
-- ✅ Static HTML export (no server needed)
-- ✅ Optimized for Lighthouse 95+
-- ✅ Responsive design (mobile-first)
-- ✅ Accessible (ARIA labels, semantic HTML)
-- ✅ Fast loading (minimal JavaScript)
-
----
-
-## License
-
-© 2026 Mahalaxmi Agri Commodities. All rights reserved.
-
----
-
-## Support
-
-For questions or issues:
-- Email: mahalaxmiagricommodities@gmail.com
-- Phone: +91 90330 00032
+- **Floating gradient blobs** in hero sections (pulse animation)
+- **Hover lift effects** on all cards (`whileHover={{ y: -8 }}`)
+- **Image scale on hover** (`group-hover:scale-105`)
+- **Staggered reveal animations** on scroll
+- **Gradient text** on headings
+- **Numbered process steps** with connecting arrows
+- **Animated counters** in stats section
+- **Loading spinners** for news fetch
+- **Sticky search bar** on Knowledge Center
