@@ -51,7 +51,6 @@ export const commodities: Commodity[] = [
   },
   {
     id: "5",
-    id: "5",
     name: "Cotton",
     category: "cotton",
     description: "Raw cotton and cotton seeds from Gujarat's premier cotton belt. We connect ginners, spinners, and exporters with reliable supply chains across India's largest cotton producing state.",
