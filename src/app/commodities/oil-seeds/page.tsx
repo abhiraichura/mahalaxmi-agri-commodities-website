@@ -7,15 +7,8 @@ import { commodities } from "@/data/commodities"
 import { SectionReveal } from "@/components/ui/SectionReveal"
 import { StaggerContainer, StaggerItem } from "@/components/ui/StaggerContainer"
 
-export default function OilSeedsPage() {{
+export default function OilSeedsPage() {
   const categoryCommodities = commodities.filter(c => c.category === "oil-seeds")
-  const categoryInfo = {{
-    spices: {{ name: "Spices", description: "Premium Indian spices including cumin, fennel, and more. Sourced from Gujarat and Rajasthan's finest growing regions.", icon: "🌿" }},
-    pulses: {{ name: "Pulses", description: "Essential protein sources including tur, moong, urad, and chana. Connecting buyers with India's largest pulse producing regions.", icon: "🫘" }},
-    "oil-seeds": {{ name: "Oil Seeds", description: "Groundnut, sesame, and cotton seeds. Gujarat's signature commodities with high oil content and international demand.", icon: "🥜" }},
-    cotton: {{ name: "Cotton", description: "Raw cotton and cotton seeds from India's premier cotton belt. Connecting ginners, spinners, and exporters.", icon: "☁️" }},
-  }}
-  const info = categoryInfo["oil-seeds"]
 
   return (
     <>
@@ -28,10 +21,10 @@ export default function OilSeedsPage() {{
             </Link>
             <span className="label mb-4 block">Category</span>
             <h1 className="font-display text-display-1 font-bold text-text mb-6">
-              {info.name}
+              Oil Seeds
             </h1>
             <p className="text-body-lg text-text-light max-w-2xl leading-relaxed">
-              {info.description}
+              Groundnut, sesame, and cotton seeds. Gujarat's signature commodities with high oil content and international demand.
             </p>
           </SectionReveal>
         </div>
@@ -104,4 +97,4 @@ export default function OilSeedsPage() {{
       </section>
     </>
   )
-}}
+}
