@@ -1,0 +1,88 @@
+import { Service } from "@/types"
+
+export const services: Service[] = [
+  {
+    id: "1",
+    title: "Supplier Discovery & Matching",
+    description: "We identify, verify, and connect you with the most reliable agricultural suppliers across India. Our deep network in Gujarat, Rajasthan, Maharashtra, and Madhya Pradesh ensures you find the right partner for your procurement needs.",
+    icon: "Search",
+    features: [
+      "Verified supplier database across 15+ states",
+      "Quality assessment and farm-level verification",
+      "Matching based on commodity, quantity, and timeline",
+      "Background checks and trade history validation",
+      "Direct introductions to decision-makers",
+    ],
+    slug: "supplier-discovery",
+  },
+  {
+    id: "2",
+    title: "Procurement Support",
+    description: "End-to-end procurement assistance from initial inquiry to final delivery. We handle negotiations, quality checks, logistics coordination, and documentation to ensure seamless transactions.",
+    icon: "ShoppingCart",
+    features: [
+      "Market rate analysis and price benchmarking",
+      "Negotiation support and contract structuring",
+      "Quality inspection at origin and destination",
+      "Logistics coordination and freight management",
+      "Complete documentation and compliance support",
+    ],
+    slug: "procurement-support",
+  },
+  {
+    id: "3",
+    title: "Market Intelligence",
+    description: "Stay ahead of market movements with our real-time intelligence on commodity prices, seasonal trends, supply forecasts, and demand signals across India's agricultural markets.",
+    icon: "TrendingUp",
+    features: [
+      "Daily price updates from APMC markets",
+      "Seasonal arrival forecasts and crop estimates",
+      "Export demand tracking and international pricing",
+      "Weather impact analysis on crop yields",
+      "Customized market reports and alerts",
+    ],
+    slug: "market-intelligence",
+  },
+  {
+    id: "4",
+    title: "Export Facilitation",
+    description: "Complete export support for international buyers sourcing from India. We manage supplier identification, quality control, documentation, and logistics to ensure smooth cross-border trade.",
+    icon: "Globe",
+    features: [
+      "APEDA registration and export documentation",
+      "Phytosanitary certificate coordination",
+      "Container booking and shipping logistics",
+      "Quality certification (ISO, HACCP, Organic)",
+      "Customs clearance and freight forwarding",
+    ],
+    slug: "export-facilitation",
+  },
+  {
+    id: "5",
+    title: "Quality Assurance",
+    description: "Rigorous quality control at every stage. From pre-harvest assessment to post-delivery inspection, we ensure your commodities meet the exact specifications agreed upon.",
+    icon: "ShieldCheck",
+    features: [
+      "Pre-shipment inspection and sampling",
+      "Laboratory testing for moisture, oil content, aflatoxin",
+      "Grade verification against Agmark standards",
+      "Container loading supervision",
+      "Dispute resolution and claim management",
+    ],
+    slug: "quality-assurance",
+  },
+  {
+    id: "6",
+    title: "Trade Finance Advisory",
+    description: "Navigate trade finance with confidence. We connect buyers and suppliers with appropriate financing solutions including letters of credit, bank guarantees, and supply chain finance.",
+    icon: "Landmark",
+    features: [
+      "Letter of Credit arrangement support",
+      "Bank guarantee facilitation",
+      "Supply chain finance structuring",
+      "Risk assessment and credit evaluation",
+      "Payment security and escrow services",
+    ],
+    slug: "trade-finance",
+  },
+]
