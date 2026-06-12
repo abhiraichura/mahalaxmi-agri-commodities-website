@@ -30,14 +30,14 @@ export function Header() {
   return (
     <>
       {/* Top Bar */}
-      <div className="bg-text text-white py-2 text-sm">
+      <div className="bg-text text-white py-2 text-xs">
         <div className="container-premium flex items-center justify-between">
           <div className="flex items-center gap-6">
             <a
               href={`tel:${siteConfig.contact.phone[0].replace(/\s/g, "")}`}
               className="flex items-center gap-2 hover:text-primary transition-colors"
             >
-              <Phone className="w-3.5 h-3.5" />
+              <Phone className="w-3 h-3" />
               <span className="hidden sm:inline">{siteConfig.contact.phone[0]}</span>
             </a>
             <span className="hidden md:inline text-white/40">|</span>
@@ -48,7 +48,7 @@ export function Header() {
           <div className="flex items-center gap-4">
             <a
               href={`mailto:${siteConfig.contact.email}`}
-              className="hover:text-primary transition-colors hidden sm:block"
+              className="hover:text-primary transition-colors hidden sm:block text-xs"
             >
               {siteConfig.contact.email}
             </a>
@@ -66,10 +66,10 @@ export function Header() {
         )}
       >
         <div className="container-premium">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-3 group">
-              <div className="relative w-10 h-10 flex items-center justify-center">
+            <Link href="/" className="flex items-center gap-2.5 group">
+              <div className="relative w-9 h-9 flex items-center justify-center">
                 <svg viewBox="0 0 100 100" className="w-full h-full">
                   <defs>
                     <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -90,10 +90,10 @@ export function Header() {
                 </svg>
               </div>
               <div className="flex flex-col">
-                <span className="text-lg font-bold text-text leading-tight tracking-tight">
+                <span className="text-base font-bold text-text leading-tight tracking-tight">
                   MAHALAXMI
                 </span>
-                <span className="text-[10px] font-semibold tracking-[0.2em] text-primary uppercase">
+                <span className="text-[9px] font-bold tracking-[0.2em] text-primary uppercase">
                   Agri Commodities
                 </span>
               </div>
@@ -111,7 +111,7 @@ export function Header() {
                   <Link
                     href={item.href}
                     className={cn(
-                      "px-4 py-2 text-sm font-medium transition-colors rounded-lg flex items-center gap-1",
+                      "px-3 py-2 text-xs font-semibold transition-colors rounded-md flex items-center gap-1",
                       pathname === item.href || pathname.startsWith(item.href)
                         ? "text-primary"
                         : "text-text-light hover:text-primary hover:bg-secondary"
@@ -121,31 +121,30 @@ export function Header() {
                     {item.children && (
                       <ChevronDown
                         className={cn(
-                          "w-3.5 h-3.5 transition-transform",
+                          "w-3 h-3 transition-transform",
                           activeDropdown === item.label && "rotate-180"
                         )}
                       />
                     )}
                   </Link>
 
-                  {/* Dropdown */}
                   <AnimatePresence>
                     {item.children && activeDropdown === item.label && (
                       <motion.div
-                        initial={{ opacity: 0, y: 10 }}
+                        initial={{ opacity: 0, y: 8 }}
                         animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 10 }}
+                        exit={{ opacity: 0, y: 8 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute top-full left-0 mt-1 w-56 bg-white rounded-xl shadow-xl shadow-black/10 border border-border overflow-hidden"
+                        className="absolute top-full left-0 mt-1 w-48 bg-white rounded-lg shadow-lg shadow-black/10 border border-border/60 overflow-hidden"
                       >
                         {item.children.map((child) => (
                           <Link
                             key={child.href}
                             href={child.href}
                             className={cn(
-                              "block px-5 py-3 text-sm transition-colors",
+                              "block px-4 py-2.5 text-xs transition-colors",
                               pathname === child.href
-                                ? "text-primary bg-primary/5 font-medium"
+                                ? "text-primary bg-primary/5 font-semibold"
                                 : "text-text-light hover:text-primary hover:bg-secondary"
                             )}
                           >
@@ -160,16 +159,16 @@ export function Header() {
             </nav>
 
             {/* CTA Buttons */}
-            <div className="hidden lg:flex items-center gap-3">
+            <div className="hidden lg:flex items-center gap-2">
               <Link
                 href="/buyer-request/"
-                className="px-5 py-2.5 text-sm font-semibold text-primary border-2 border-primary rounded-lg hover:bg-primary hover:text-white transition-all"
+                className="px-4 py-2 text-xs font-semibold text-primary border border-primary rounded-lg hover:bg-primary hover:text-white transition-all"
               >
                 Buyer Inquiry
               </Link>
               <Link
                 href="/supplier-request/"
-                className="px-5 py-2.5 text-sm font-semibold text-white bg-primary rounded-lg hover:bg-primary-dark transition-all"
+                className="px-4 py-2 text-xs font-semibold text-white bg-primary rounded-lg hover:bg-primary-dark transition-all"
               >
                 Request Sourcing
               </Link>
@@ -181,7 +180,7 @@ export function Header() {
               className="lg:hidden p-2 text-text hover:text-primary transition-colors"
               aria-label="Toggle menu"
             >
-              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
@@ -197,14 +196,14 @@ export function Header() {
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
             className="fixed inset-0 z-40 bg-white lg:hidden"
           >
-            <div className="flex flex-col h-full pt-24 pb-8 px-6 overflow-y-auto">
-              <nav className="flex flex-col gap-2">
+            <div className="flex flex-col h-full pt-20 pb-8 px-6 overflow-y-auto">
+              <nav className="flex flex-col gap-1">
                 {navigation.main.map((item) => (
                   <div key={item.href}>
                     <Link
                       href={item.href}
                       className={cn(
-                        "block py-3 text-lg font-medium",
+                        "block py-3 text-base font-semibold",
                         pathname === item.href
                           ? "text-primary"
                           : "text-text"
@@ -221,7 +220,7 @@ export function Header() {
                             className={cn(
                               "py-2 text-sm",
                               pathname === child.href
-                                ? "text-primary font-medium"
+                                ? "text-primary font-semibold"
                                 : "text-text-light"
                             )}
                           >
@@ -237,7 +236,7 @@ export function Header() {
               <div className="mt-auto flex flex-col gap-3 pt-8 border-t border-border">
                 <Link
                   href="/buyer-request/"
-                  className="w-full py-3 text-center text-sm font-semibold text-primary border-2 border-primary rounded-lg"
+                  className="w-full py-3 text-center text-sm font-semibold text-primary border border-primary rounded-lg"
                 >
                   Buyer Inquiry
                 </Link>
@@ -247,10 +246,6 @@ export function Header() {
                 >
                   Request Sourcing
                 </Link>
-                <div className="mt-4 text-center text-sm text-text-muted">
-                  <p className="font-medium text-text">{siteConfig.contact.phone[0]}</p>
-                  <p>{siteConfig.contact.email}</p>
-                </div>
               </div>
             </div>
           </motion.div>

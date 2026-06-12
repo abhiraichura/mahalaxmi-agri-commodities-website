@@ -3,131 +3,182 @@
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { ArrowRight, ChevronDown } from "lucide-react"
-import { ParticleBackground } from "@/components/ui/ParticleBackground"
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
-      {/* Particle Background */}
-      <ParticleBackground />
+    <section className="relative min-h-screen flex items-center bg-white overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-[0.08]"
+          style={{ backgroundImage: "url('/images/spice-bazaar.png')" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/80" />
+      </div>
 
-      {/* Gradient Orbs */}
-      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+      {/* Subtle Grid Pattern */}
+      <div className="absolute inset-0 opacity-[0.03] z-0">
+        <svg width="100%" height="100%">
+          <defs>
+            <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="0.5" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#grid)" />
+        </svg>
+      </div>
 
       {/* Content */}
-      <div className="relative z-10 container-premium pt-20 pb-16">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Label */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mb-8"
-          >
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 border border-primary/10 text-primary text-sm font-medium">
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              The Trusted Network Behind India's Agricultural Trade
-            </span>
-          </motion.div>
+      <div className="relative z-10 container-premium pt-24 pb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Left Content */}
+          <div className="max-w-xl">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="mb-6"
+            >
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-semibold tracking-wide">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                Trusted Since 2008
+              </span>
+            </motion.div>
 
-          {/* Main Headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+              className="text-display-1 text-text mb-6"
+            >
+              The Network Behind{" "}
+              <span className="text-gradient">India's Agricultural Trade</span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.45 }}
+              className="text-body-lg text-text-light mb-8 leading-relaxed"
+            >
+              Connecting buyers with verified suppliers across spices, pulses, oil seeds, and cotton. 
+              17+ years of trusted brokerage from Rajkot, Gujarat.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.6 }}
+              className="flex flex-col sm:flex-row items-start gap-3"
+            >
+              <Link
+                href="/buyer-request/"
+                className="btn-primary group"
+              >
+                Request Sourcing Match
+                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <Link
+                href="/commodities/"
+                className="btn-secondary"
+              >
+                Explore Commodities
+              </Link>
+            </motion.div>
+
+            {/* Trust Indicators */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1 }}
+              className="mt-12 pt-8 border-t border-border/60"
+            >
+              <div className="flex items-center gap-8">
+                <div>
+                  <div className="text-2xl font-bold text-text">17+</div>
+                  <div className="text-xs text-text-muted mt-0.5">Years Experience</div>
+                </div>
+                <div className="w-px h-10 bg-border" />
+                <div>
+                  <div className="text-2xl font-bold text-text">500+</div>
+                  <div className="text-xs text-text-muted mt-0.5">Verified Suppliers</div>
+                </div>
+                <div className="w-px h-10 bg-border" />
+                <div>
+                  <div className="text-2xl font-bold text-text">15+</div>
+                  <div className="text-xs text-text-muted mt-0.5">States Covered</div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Right - Image Grid */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="font-display text-display-1 font-bold text-text mb-6 leading-[1.05]"
+            className="relative hidden lg:block"
           >
-            Trade Smarter.
-            <br />
-            <span className="text-gradient">Source Better.</span>
-          </motion.h1>
+            <div className="relative">
+              {/* Main Image */}
+              <div className="rounded-2xl overflow-hidden shadow-2xl shadow-black/10">
+                <img 
+                  src="/images/agri-handshake.png" 
+                  alt="Agricultural trade partnership"
+                  className="w-full h-[420px] object-cover"
+                />
+              </div>
 
-          {/* Subheadline */}
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-body-lg text-text-light max-w-2xl mx-auto mb-10 leading-relaxed"
-          >
-            Connecting India's agricultural supply chain through trusted relationships, 
-            market intelligence, and strategic brokerage. We don't sell commodities — we 
-            connect the people who do.
-          </motion.p>
+              {/* Floating Card 1 */}
+              <motion.div
+                animate={{ y: [0, -8, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl shadow-black/10 p-4 border border-border/60"
+              >
+                <div className="flex items-center gap-3">
+                  <img src="/images/sesame-seeds.png" alt="Sesame" className="w-12 h-12 rounded-lg object-cover" />
+                  <div>
+                    <p className="text-xs text-text-muted">Sesame Seeds</p>
+                    <p className="font-bold text-sm text-text">₹8,200/qtl</p>
+                  </div>
+                </div>
+              </motion.div>
 
-          {/* CTAs */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
-          >
-            <Link
-              href="/supplier-request/"
-              className="group inline-flex items-center gap-3 px-8 py-4 bg-primary text-white font-semibold rounded-xl 
-                         hover:bg-primary-dark transition-all duration-300 hover:shadow-xl hover:shadow-primary/20"
-            >
-              Request a Sourcing Match
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <Link
-              href="/commodities/"
-              className="inline-flex items-center gap-3 px-8 py-4 text-text font-semibold rounded-xl 
-                         border-2 border-border hover:border-text hover:bg-text hover:text-white transition-all duration-300"
-            >
-              Explore Commodity Network
-            </Link>
-          </motion.div>
-
-          {/* Trust Badge */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1.2 }}
-            className="mt-16 flex items-center justify-center gap-8 text-sm text-text-muted"
-          >
-            <div className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-              </svg>
-              <span>Verified Suppliers</span>
-            </div>
-            <div className="w-px h-4 bg-border" />
-            <div className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                <polyline points="22 4 12 14.01 9 11.01" />
-              </svg>
-              <span>Quality Assured</span>
-            </div>
-            <div className="w-px h-4 bg-border" />
-            <div className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <circle cx="12" cy="12" r="10" />
-                <polyline points="12 6 12 12 16 14" />
-              </svg>
-              <span>Since 2008</span>
+              {/* Floating Card 2 */}
+              <motion.div
+                animate={{ y: [0, 8, 0] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                className="absolute -top-4 -right-4 bg-white rounded-xl shadow-xl shadow-black/10 p-4 border border-border/60"
+              >
+                <div className="flex items-center gap-3">
+                  <img src="/images/cumin-fennel.png" alt="Spices" className="w-12 h-12 rounded-lg object-cover" />
+                  <div>
+                    <p className="text-xs text-text-muted">Cumin Export</p>
+                    <p className="font-bold text-sm text-text">Grade A Quality</p>
+                  </div>
+                </div>
+              </motion.div>
             </div>
           </motion.div>
         </div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        >
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="flex flex-col items-center gap-2 text-text-muted"
-          >
-            <span className="text-xs uppercase tracking-widest">Scroll</span>
-            <ChevronDown className="w-5 h-5" />
-          </motion.div>
-        </motion.div>
       </div>
+
+      {/* Scroll Indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+      >
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+          className="flex flex-col items-center gap-1 text-text-muted"
+        >
+          <span className="text-[10px] uppercase tracking-widest font-medium">Scroll</span>
+          <ChevronDown className="w-4 h-4" />
+        </motion.div>
+      </motion.div>
     </section>
   )
 }

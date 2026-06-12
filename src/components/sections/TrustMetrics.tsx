@@ -6,20 +6,8 @@ import { trustMetrics } from "@/data/site"
 
 export function TrustMetrics() {
   return (
-    <section className="relative py-20 lg:py-24 bg-secondary overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-[0.03]">
-        <svg width="100%" height="100%">
-          <defs>
-            <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
-              <path d="M 60 0 L 0 0 0 60" fill="none" stroke="currentColor" strokeWidth="1" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#grid)" />
-        </svg>
-      </div>
-
-      <div className="relative container-premium">
+    <section className="relative py-16 lg:py-20 bg-secondary overflow-hidden">
+      <div className="container-premium">
         <div className="grid grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-4">
           {trustMetrics.map((metric, index) => (
             <motion.div
@@ -31,7 +19,7 @@ export function TrustMetrics() {
               className="text-center lg:text-left"
             >
               <div className="mb-2">
-                <span className="text-4xl lg:text-5xl font-display font-bold text-text">
+                <span className="text-3xl lg:text-4xl font-bold text-text tracking-tight">
                   <AnimatedCounter
                     end={metric.value}
                     suffix={metric.suffix}
